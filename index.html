@@ -150,6 +150,37 @@
   .gc .why{font-size:12.5px;background:var(--slate-soft);border-radius:9px;padding:11px 13px;color:var(--text);line-height:1.55}
   .gc .why b{color:var(--red-d);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase}
 
+  /* ---------- quadrant map (Figure 04) ---------- */
+  .quad{background:linear-gradient(180deg,#13283b,#0f1d2b);border:1px solid #ffffff1c;border-radius:16px;padding:18px 22px 20px;color:#dce6ee}
+  .quad svg{width:100%;height:auto;display:block}
+  .quad .mk{transform-box:fill-box;transform-origin:center}
+  .quad .qnote{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:#aebccb;margin:17px 2px 0;letter-spacing:.01em;line-height:1.65}
+  .quad .qnote b{color:#fff;font-weight:600}
+  .quad .qnote .gp{color:#f3a0a4} .quad .qnote .ov{color:#aab6c2}
+  .quad .qlegend{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 24px;margin:18px 2px 0;padding-top:18px;border-top:1px solid #ffffff14}
+  .quad .li{display:flex;gap:10px;align-items:flex-start}
+  .quad .li .num{flex:none;width:21px;height:21px;border-radius:50%;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .quad .li .num.g{background:#4a1c20;color:#f3a0a4;border:1px dashed #e33f45}
+  .quad .li .num.p{background:#4d3a13;color:#f0c071;border:1px solid #d97706}
+  .quad .li .num.s{background:#0c3c48;color:#5fcbe0}
+  .quad .li .num.o{background:#28323d;color:#aab6c2}
+  .quad .li .tx{font-size:12.5px;line-height:1.28}
+  .quad .li .tx b{color:#eef3f7;font-weight:600;display:block}
+  .quad .li .tx span{color:#8aa0b3;font-family:"IBM Plex Mono",monospace;font-size:10px}
+  .quad .qkey{display:flex;flex-wrap:wrap;gap:9px 22px;margin:16px 2px 2px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:#aebccb}
+  .quad .qkey .k{display:flex;align-items:center;gap:8px}
+  .quad .qkey .gd{width:13px;height:13px;border-radius:50%;display:inline-block}
+  .quad .qkey .gd.gap{background:#e33f4522;border:1.5px dashed #ef6b70}
+  .quad .qkey .gd.part{background:#d9770622;border:1.5px solid #d97706}
+  .quad .qkey .gd.str{background:#49b8d0}
+  .quad .qkey .gd.over{background:#7b8794}
+  @media(max-width:760px){.quad .qlegend{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.quad .qlegend{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:no-preference){
+    .quad .mk{animation:pop .5s cubic-bezier(.2,.8,.3,1.2) backwards}
+    @keyframes pop{from{opacity:0;transform:scale(.45)}}
+  }
+
   /* ---------- BOFU callout ---------- */
   .bofu{margin:22px 0 0;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:11px;padding:16px 19px;font-size:13.5px;color:var(--text);line-height:1.6}
   .bofu b{color:var(--ink);font-weight:600}
@@ -312,6 +343,99 @@
       <div class="prow"><div class="prank">06</div><div class="plabel">Facebook<span>local plant-swap &amp; houseplant groups</span></div><div class="pbar"><i style="width:59%;background:var(--amber)"></i></div><div class="pscore">59.4</div><div class="pstat amp">Amplify</div></div>
       <div class="prow"><div class="prank">07</div><div class="plabel">X (Twitter)<span>low return for this audience</span></div><div class="pbar"><i style="width:31%;background:#7b8794"></i></div><div class="pscore">31.0</div><div class="pstat hold">Hold</div></div>
       <div class="pnote">Two tells here: <b style="color:#5fcbe0">Pinterest</b> matters more than usual (plant people pin care guides and re-find them for months), and <b style="color:#5fcbe0">r/houseplants</b> is where they post a photo and ask "what's wrong with my plant?"</div>
+    </div>
+  </section>
+
+  <!-- ===== quadrant map ===== -->
+  <section class="sec">
+    <div class="fig-head">
+      <div class="t"><span class="e">Figure 04 // the whole map</span>Every topic, plotted by demand and coverage</div>
+      <div class="d">One dot per content cluster. Left-to-right is how much the audience wants it; bottom-to-top is how well the blog covers it now. The whole story is in two corners.</div>
+    </div>
+    <div class="quad">
+      <svg viewBox="0 0 1100 560" role="img" aria-label="Demand-versus-coverage map. The bottom-right corner holds the priority gaps: high demand, little coverage. Leaf and Loam's existing posts cluster in the top-left, over-served and low-demand.">
+        <defs>
+          <filter id="qglow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <radialGradient id="qhalo" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#49b8d0" stop-opacity=".5"/><stop offset="100%" stop-color="#49b8d0" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- quadrant washes -->
+        <rect x="120" y="50" width="465" height="225" fill="#7b8794" opacity="0.05"/>
+        <rect x="585" y="50" width="465" height="225" fill="#0e7490" opacity="0.10"/>
+        <rect x="120" y="275" width="465" height="225" fill="#0a131d" opacity="0.22"/>
+        <rect x="585" y="275" width="465" height="225" fill="#e33f45" opacity="0.10"/>
+        <!-- grid -->
+        <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="1">
+          <line x1="120" y1="162.5" x2="1050" y2="162.5"/><line x1="120" y1="387.5" x2="1050" y2="387.5"/>
+          <line x1="352.5" y1="50" x2="352.5" y2="500"/><line x1="817.5" y1="50" x2="817.5" y2="500"/>
+        </g>
+        <line x1="585" y1="50" x2="585" y2="500" stroke="#ffffff" stroke-opacity="0.18" stroke-dasharray="5 5"/>
+        <line x1="120" y1="275" x2="1050" y2="275" stroke="#ffffff" stroke-opacity="0.18" stroke-dasharray="5 5"/>
+        <line x1="120" y1="50" x2="120" y2="500" stroke="#ffffff" stroke-opacity="0.25"/>
+        <line x1="120" y1="500" x2="1050" y2="500" stroke="#ffffff" stroke-opacity="0.25"/>
+        <!-- quadrant labels -->
+        <text x="135" y="74" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.5" fill="#8a99a4" font-weight="600">OVER-SERVED</text>
+        <text x="135" y="90" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5f7180">lots of posts, low demand</text>
+        <text x="1035" y="74" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.5" fill="#5fcbe0" font-weight="600">STRENGTHS</text>
+        <text x="1035" y="90" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#3f9aa4">wanted and well covered</text>
+        <text x="135" y="478" font-family="IBM Plex Mono,monospace" font-size="12" letter-spacing="1.5" fill="#5f7180" font-weight="600">LOW PRIORITY</text>
+        <text x="135" y="494" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#465563">low demand, low coverage</text>
+        <text x="1035" y="296" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="13" letter-spacing="1.5" fill="#f3787d" font-weight="700">PRIORITY GAPS</text>
+        <text x="1035" y="312" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#d98a8d">high demand, no content</text>
+        <!-- axes -->
+        <text x="120" y="528" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f7180">LOW</text>
+        <text x="585" y="528" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7b8794">AUDIENCE DEMAND &#8594;</text>
+        <text x="1050" y="528" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f7180">HIGH</text>
+        <text x="104" y="500" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f7180" transform="rotate(-90 104 500)">LOW</text>
+        <text x="104" y="275" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7b8794" transform="rotate(-90 104 275)">BLOG COVERAGE &#8594;</text>
+        <text x="104" y="50" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f7180" transform="rotate(-90 104 50)">HIGH</text>
+        <!-- GAP markers: dashed hollow red rings -->
+        <g font-family="IBM Plex Mono,monospace" font-size="13" font-weight="600" text-anchor="middle">
+          <g class="mk" style="animation-delay:.02s"><title>1. Yellow leaves / "what's wrong with my plant?" - top priority gap</title><circle cx="995" cy="470" r="16" fill="#e33f45" fill-opacity="0.16" stroke="#e33f45" stroke-width="2" stroke-dasharray="3.5 3.5"/><text x="995" y="474.5" fill="#f3a0a4">1</text></g>
+          <g class="mk" style="animation-delay:.06s"><title>2. How often to water each plant - top how-to, unanswered</title><circle cx="900" cy="433" r="16" fill="#e33f45" fill-opacity="0.16" stroke="#e33f45" stroke-width="2" stroke-dasharray="3.5 3.5"/><text x="900" y="437.5" fill="#f3a0a4">2</text></g>
+          <g class="mk" style="animation-delay:.10s"><title>3. Are these plants safe for pets? - top objection, nothing on it</title><circle cx="852" cy="481" r="16" fill="#e33f45" fill-opacity="0.16" stroke="#e33f45" stroke-width="2" stroke-dasharray="3.5 3.5"/><text x="852" y="485.5" fill="#f3a0a4">3</text></g>
+          <g class="mk" style="animation-delay:.14s"><title>4. Best plants for low light - biggest term, only styling roundups</title><circle cx="776" cy="404" r="16" fill="#e33f45" fill-opacity="0.16" stroke="#e33f45" stroke-width="2" stroke-dasharray="3.5 3.5"/><text x="776" y="408.5" fill="#f3a0a4">4</text></g>
+          <g class="mk" style="animation-delay:.18s"><title>5. Overwatering &amp; pest fixes - high intent, no fix page</title><circle cx="958" cy="392" r="16" fill="#e33f45" fill-opacity="0.16" stroke="#e33f45" stroke-width="2" stroke-dasharray="3.5 3.5"/><text x="958" y="396.5" fill="#f3a0a4">5</text></g>
+        </g>
+        <!-- PARTIAL markers: solid amber rings -->
+        <g font-family="IBM Plex Mono,monospace" font-size="13" font-weight="600" text-anchor="middle">
+          <g class="mk" style="animation-delay:.22s"><title>6. Propagation how-tos - a few posts, still thin</title><circle cx="676" cy="358" r="15" fill="#d97706" fill-opacity="0.14" stroke="#d97706" stroke-width="2"/><text x="676" y="362.5" fill="#f0c071">6</text></g>
+          <g class="mk" style="animation-delay:.26s"><title>7. Repotting basics - touched, not owned</title><circle cx="722" cy="316" r="15" fill="#d97706" fill-opacity="0.14" stroke="#d97706" stroke-width="2"/><text x="722" y="320.5" fill="#f0c071">7</text></g>
+        </g>
+        <!-- STRENGTH markers: glowing filled teal dots -->
+        <g font-family="IBM Plex Mono,monospace" font-size="13" font-weight="700" text-anchor="middle">
+          <g class="mk" style="animation-delay:.30s"><title>8. Best beginner houseplants - covered and wanted</title><circle cx="815" cy="150" r="26" fill="url(#qhalo)"/><circle cx="815" cy="150" r="15" fill="#49b8d0" filter="url(#qglow)"/><text x="815" y="154.5" fill="#062b34">8</text></g>
+          <g class="mk" style="animation-delay:.34s"><title>9. Plant care by season - solid, well-aligned</title><circle cx="722" cy="206" r="24" fill="url(#qhalo)"/><circle cx="722" cy="206" r="15" fill="#49b8d0" filter="url(#qglow)"/><text x="722" y="210.5" fill="#062b34">9</text></g>
+        </g>
+        <!-- OVER-SERVED markers: muted slate dots -->
+        <g font-family="IBM Plex Mono,monospace" font-size="13" font-weight="600" text-anchor="middle">
+          <g class="mk" style="animation-delay:.38s"><title>10. Shelf &amp; "shelfie" styling - many posts, small demand</title><circle cx="300" cy="110" r="14" fill="#7b8794"/><text x="300" y="114.5" fill="#10202b">10</text></g>
+          <g class="mk" style="animation-delay:.42s"><title>11. Decor by room aesthetic - over-invested vs demand</title><circle cx="430" cy="162" r="14" fill="#7b8794"/><text x="430" y="166.5" fill="#10202b">11</text></g>
+          <g class="mk" style="animation-delay:.46s"><title>12. Seasonal home staging - trend content, low pull</title><circle cx="236" cy="206" r="14" fill="#7b8794"/><text x="236" y="210.5" fill="#10202b">12</text></g>
+          <g class="mk" style="animation-delay:.50s"><title>13. Rare / collector plant aesthetics - niche, well covered</title><circle cx="486" cy="93" r="14" fill="#7b8794"/><text x="486" y="97.5" fill="#10202b">13</text></g>
+        </g>
+      </svg>
+      <div class="qnote">Read the corners. Leaf &amp; Loam's posts pile into the <b class="ov">top-left</b> - styling topics, well covered, little real demand. Their buyers sit in the <b class="gp">bottom-right</b> - care questions with real demand and <b>no page to answer them</b>. The four openings below are simply the bottom-right dots, in priority order.</div>
+      <div class="qlegend">
+        <div class="li"><div class="num g">1</div><div class="tx"><b>Yellow leaves &amp; troubleshooting</b><span>Highest-intent gap, no page</span></div></div>
+        <div class="li"><div class="num g">2</div><div class="tx"><b>How often to water</b><span>Top how-to, unanswered</span></div></div>
+        <div class="li"><div class="num g">3</div><div class="tx"><b>Pet-safe houseplants</b><span>Top objection, nothing on it</span></div></div>
+        <div class="li"><div class="num g">4</div><div class="tx"><b>Plants for low light</b><span>Biggest term, styling-only</span></div></div>
+        <div class="li"><div class="num g">5</div><div class="tx"><b>Overwatering &amp; pests</b><span>High intent, no fix page</span></div></div>
+        <div class="li"><div class="num p">6</div><div class="tx"><b>Propagation how-tos</b><span>A few posts, still thin</span></div></div>
+        <div class="li"><div class="num p">7</div><div class="tx"><b>Repotting basics</b><span>Touched, not owned</span></div></div>
+        <div class="li"><div class="num s">8</div><div class="tx"><b>Best beginner plants</b><span>Covered and wanted</span></div></div>
+        <div class="li"><div class="num s">9</div><div class="tx"><b>Plant care by season</b><span>Solid, well-aligned</span></div></div>
+        <div class="li"><div class="num o">10</div><div class="tx"><b>Shelf &amp; "shelfie" styling</b><span>Many posts, small demand</span></div></div>
+        <div class="li"><div class="num o">11</div><div class="tx"><b>Decor by room aesthetic</b><span>Over-invested vs demand</span></div></div>
+        <div class="li"><div class="num o">12</div><div class="tx"><b>Seasonal home staging</b><span>Trend content, low pull</span></div></div>
+        <div class="li"><div class="num o">13</div><div class="tx"><b>Rare / collector aesthetics</b><span>Niche, well covered</span></div></div>
+      </div>
+      <div class="qkey">
+        <div class="k"><span class="gd gap"></span> Priority gap</div>
+        <div class="k"><span class="gd part"></span> Partial coverage</div>
+        <div class="k"><span class="gd str"></span> Strength</div>
+        <div class="k"><span class="gd over"></span> Over-served</div>
+      </div>
     </div>
   </section>
 
